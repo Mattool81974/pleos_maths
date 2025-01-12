@@ -1,0 +1,8 @@
+L'avantage de l'utilisation des fonctions est la possibilité de généraliser certaines transformations mathématiques, et de les étudier plus facilement.
+
+</br></br>
+
+Dans le cas des fonctions numériques, il existe beaucoup de formes possibles.
+Les plus connues sont les polynômes.
+</br></br>
+<math><mi>f(x)</mi><mo>=</mo><mi>ax</mi></math>

@@ -1,0 +1,4 @@
+// Load the needed pages
+<page_2d name="maths" displayed>
+	<content src="plugins/maths/gui_content.txt" sub_paged></content>
+</page_2d>

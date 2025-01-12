@@ -1,0 +1,24 @@
+//***************************************************
+//
+//   NAVIGATION
+//
+//***************************************************
+
+<gui_object name="maths_navigation" type="scroller_choice" visible>
+	<border bottom=1 left=1 right=1 top=1>
+	<height value=7/8 type=scale>
+	<width value=1/5 type=scale>
+	<x attach=left>
+	<y attach=top>
+
+	<choice name="home">Accueil</choice>
+	<choice name="algebra_basis">Les bases de l'algèbre</choice>
+	<choice name="arithmetic">L'arithmétique</choice>
+	<sub_choice name="functions" displayer="Fonctions">
+		<choice name="functions_definitions">Définitions basiques</choice>
+		<choice name="functions_forms">Des formes bien connues</choice>
+		<choice name="functions_redaction">Calcul rédigé</choice>
+	</sub_choice>
+</gui_object>
+
+<include src="gui_content_function.txt">

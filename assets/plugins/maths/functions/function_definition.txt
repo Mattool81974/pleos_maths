@@ -1,0 +1,19 @@
+Les fonctions représentent un moyen de lier un objet mathématique (appelé ici antécédent, ou variables) avec une transformation de ce dernier, et d'étudier l'objet transformé (appelée image).
+Tous les objets transformables de la fonction sont définis dans un ensemble, nommé ensemble de définition.
+En général, cet ensemble est composé de nombres, mais il est aussi possible qu'une fonction puisse prendre n'importe quelle autre type de valeur.
+De plus, une fonction peut prendre 1 seul antécédent, ou plusieurs antécédents.
+De même manière, une fonction peut transformer ses antécédents en 1 ou plusieurs images.
+L'ensemble de toutes les valeurs obtensibles via une fonction est nommé l'ensemble d'arrivée de la fonction.
+
+</br></br>
+
+Comme tout objets mathématiques, elle a un nom, et tout un système de notation dédié pour les utiliser.
+Par exemple, définissons une fonction "f" prenant un antécédent "x" défini sur l'ensemble "E".
+Une image "i" de "f" pour un certain "x" s'écrit :
+</br></br>
+<math><mi>f(x)</mi><mo>=</mo><mi>i</mi></math>
+</br></br>
+Cependant, quand on connait la fonction, le plus utile est d'indiquer la transformation qu'effectue "f" pour "x", appelée l'expression de la fonction :
+</br></br>
+<math><mi>f(x)</mi><mo>=</mo><mi>3</mi><mo>*</mo><mi>x</mi><mo>+</mo><mi>2</mi></math>
+</br></br>

@@ -45,8 +45,13 @@ namespace pleos {
         if(object_name == "maths_functions_redaction_elements_chosen"){a_functions_redaction_elements_chosen = *parent->new_object<scls::GUI_Scroller_Choice>(object_name);return a_functions_redaction_elements_chosen;}
         if(object_name == "maths_functions_redaction_expression"){a_functions_redaction_expression = *parent->new_object<scls::GUI_Text_Input>(object_name);return a_functions_redaction_expression;}
 
+        // Geometry
+        if(object_name == "maths_geometry_definitions_body") {a_geometry_definitions_body = *parent->new_object<scls::GUI_Text>(object_name);return a_geometry_definitions_body;}
+        if(object_name == "maths_geometry_complex_numbers_body") {a_geometry_complex_numbers_page = *parent->new_object<scls::GUI_Text>(object_name);return a_geometry_complex_numbers_page;}
+
         // Pages
         if(object_name == "maths_functions_page") {a_functions_page = *parent->new_object<scls::GUI_Object>(object_name);return a_functions_page;}
+        if(object_name == "maths_geometry_page"){a_geometry_page = *parent->new_object<scls::GUI_Object>(object_name);return a_geometry_page;}
 
         // Navigation
         if(object_name == "maths_navigation") {a_navigation = *parent->new_object<scls::GUI_Scroller_Choice>(object_name);return a_navigation;}
@@ -107,6 +112,7 @@ namespace pleos {
             if(page == "functions_definitions"){display_functions_definitions_page();}
             else if(page == "functions_forms"){display_functions_forms_page();}
             else if(page == "functions_redaction"){display_functions_redaction_page();}
+            else if(page == "geometry_complex_numbers"){display_geometry_complex_numbers_page();};
         }
     }
 

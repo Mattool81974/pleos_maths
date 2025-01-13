@@ -19,6 +19,11 @@
 		<choice name="functions_forms">Des formes bien connues</choice>
 		<choice name="functions_redaction">Calcul rédigé</choice>
 	</sub_choice>
+	<sub_choice name="geometry" displayer="Géométrie">
+		<choice name="geometry_definitions">Définition</choice>
+		<choice name="geometry_complex_numbers">Utilisation des nombres complexes</choice>
+	</sub_choice>
 </gui_object>
 
 <include src="gui_content_function.txt">
+<include src="gui_content_geometry.txt">

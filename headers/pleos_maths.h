@@ -57,8 +57,6 @@ namespace pleos {
         //
         //******************
 
-
-
         //******************
         //
         // Check the events
@@ -85,6 +83,9 @@ namespace pleos {
         void display_functions_definitions_page(){display_functions_page();functions_definitions_page()->set_visible(true);};
         void display_functions_forms_page(){display_functions_page();functions_forms_page()->set_visible(true);};
         void display_functions_redaction_page(){set_current_page(PLEOS_MATHS_FUNCTIONS_REDACTION_PAGE);display_functions_page();functions_redaction_page()->set_visible(true);};
+        // Displays the geometry page
+        void display_geometry_page(){hide_all();geometry_page()->set_visible(true);};
+        void display_geometry_complex_numbers_page(){display_geometry_page();geometry_complex_numbers_page()->set_visible(true);};
 
         // Hides all the pages
         void hide_all(){hide_sub_pages(true);};
@@ -100,10 +101,11 @@ namespace pleos {
         //******************
 
         // Returns pages
-        inline scls::GUI_Object* functions_definitions_page() const {return a_functions_definitions_page.get();};
+        inline scls::GUI_Text* functions_definitions_page() const {return a_functions_definitions_page.get();};
         inline scls::GUI_Object* functions_forms_page() const {return a_functions_forms_page.get();};
         inline scls::GUI_Object* functions_page() const {return a_functions_page.get();};
         inline scls::GUI_Object* functions_redaction_page() const {return a_functions_redaction_page.get();};
+        inline scls::GUI_Object* geometry_page() const {return a_geometry_page.get();};
         inline scls::GUI_Scroller_Choice* navigation() const {return a_navigation.get();};
 
         //  Returns functions
@@ -112,6 +114,9 @@ namespace pleos {
         inline scls::GUI_Scroller_Choice* functions_redaction_elements() const {return a_functions_redaction_elements.get();};
         inline scls::GUI_Scroller_Choice* functions_redaction_elements_chosen() const {return a_functions_redaction_elements_chosen.get();};
         inline scls::GUI_Text_Input* functions_redaction_expression() const {return a_functions_redaction_expression.get();};
+
+        // Returns geometry
+        inline scls::GUI_Object* geometry_complex_numbers_page() const {return a_geometry_complex_numbers_page.get();};
 
     private:
 
@@ -126,9 +131,10 @@ namespace pleos {
 
         // Pages
         std::shared_ptr<scls::GUI_Object> a_functions_page;
+        std::shared_ptr<scls::GUI_Object> a_geometry_page;
 
         // Functions page
-        std::shared_ptr<scls::GUI_Object> a_functions_definitions_page;
+        std::shared_ptr<scls::GUI_Text> a_functions_definitions_page;
         std::shared_ptr<scls::GUI_Object> a_functions_forms_page;
         std::shared_ptr<scls::GUI_Text> a_functions_redaction;
         std::shared_ptr<scls::GUI_Text> a_functions_redaction_analyse;
@@ -136,6 +142,10 @@ namespace pleos {
         std::shared_ptr<scls::GUI_Scroller_Choice> a_functions_redaction_elements;
         std::shared_ptr<scls::GUI_Scroller_Choice> a_functions_redaction_elements_chosen;
         std::shared_ptr<scls::GUI_Text_Input> a_functions_redaction_expression;
+
+        // Geometry page
+        std::shared_ptr<scls::GUI_Object> a_geometry_complex_numbers_page;
+        std::shared_ptr<scls::GUI_Text> a_geometry_definitions_body;
     };
 
     class __Temp_Pleos_Window : public scls::Window {

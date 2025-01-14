@@ -58,7 +58,20 @@
 	<x value=1/2 type=object_scale>
 	<y attach=bottom>
 </gui_object>
-<gui_object name="maths_functions_redaction" type="text">
+
+// Redaction
+<gui_object name="maths_functions_redaction" type="text" sub_page>
+	<border bottom=1 left=1 right=1 top=1>
+	<content max_width=0>Pas de rédaction à afficher</content>
+	<height value=1/2 type=scale>
+	<parent name="maths_functions_redaction_body">
+	<texture alignment_vertical=top>
+	<width value=4/5 type=scale>
+	<x attach=right>
+	<y attach=top>
+</gui_object>
+// Graphic
+<gui_object name="maths_functions_redaction_graphic" type="graphic" sub_page>
 	<border bottom=1 left=1 right=1 top=1>
 	<content max_width=0>Pas de rédaction à afficher</content>
 	<height value=1/2 type=scale>

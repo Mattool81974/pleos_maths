@@ -82,7 +82,8 @@ namespace pleos {
         void display_functions_page(){hide_all();functions_page()->set_visible(true);};
         void display_functions_definitions_page(){display_functions_page();functions_definitions_page()->set_visible(true);};
         void display_functions_forms_page(){display_functions_page();functions_forms_page()->set_visible(true);};
-        void display_functions_redaction_page(){set_current_page(PLEOS_MATHS_FUNCTIONS_REDACTION_PAGE);display_functions_page();functions_redaction_page()->set_visible(true);};
+        void display_functions_redaction_page(){set_current_page(PLEOS_MATHS_FUNCTIONS_REDACTION_PAGE);display_functions_page();functions_redaction_page()->set_visible(true);functions_redaction()->set_visible(true);};
+        void display_functions_redaction_graphic_page(){set_current_page(PLEOS_MATHS_FUNCTIONS_REDACTION_PAGE);display_functions_page();functions_redaction_page()->set_visible(true);functions_redaction_graphic()->set_visible(true);};
         // Displays the geometry page
         void display_geometry_page(){hide_all();geometry_page()->set_visible(true);};
         void display_geometry_complex_numbers_page(){display_geometry_page();geometry_complex_numbers_page()->set_visible(true);};
@@ -114,6 +115,7 @@ namespace pleos {
         inline scls::GUI_Scroller_Choice* functions_redaction_elements() const {return a_functions_redaction_elements.get();};
         inline scls::GUI_Scroller_Choice* functions_redaction_elements_chosen() const {return a_functions_redaction_elements_chosen.get();};
         inline scls::GUI_Text_Input* functions_redaction_expression() const {return a_functions_redaction_expression.get();};
+        inline scls::GUI_Object* functions_redaction_graphic() const {return a_functions_redaction_graphic.get();};
 
         // Returns geometry
         inline scls::GUI_Object* geometry_complex_numbers_page() const {return a_geometry_complex_numbers_page.get();};
@@ -142,6 +144,7 @@ namespace pleos {
         std::shared_ptr<scls::GUI_Scroller_Choice> a_functions_redaction_elements;
         std::shared_ptr<scls::GUI_Scroller_Choice> a_functions_redaction_elements_chosen;
         std::shared_ptr<scls::GUI_Text_Input> a_functions_redaction_expression;
+        std::shared_ptr<scls::GUI_Object> a_functions_redaction_graphic;
 
         // Geometry page
         std::shared_ptr<scls::GUI_Object> a_geometry_complex_numbers_page;

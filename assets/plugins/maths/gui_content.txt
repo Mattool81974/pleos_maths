@@ -18,6 +18,7 @@
 		<choice name="functions_definitions">Définitions basiques</choice>
 		<choice name="functions_forms">Des formes bien connues</choice>
 		<choice name="functions_redaction">Calcul rédigé</choice>
+		<choice name="functions_graphic">Représentation graphique</choice>
 	</sub_choice>
 	<sub_choice name="geometry" displayer="Géométrie">
 		<choice name="geometry_definitions">Définition</choice>

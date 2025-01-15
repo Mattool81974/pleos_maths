@@ -27,9 +27,6 @@
 // You should have received a copy of the GNU General Public License along with PLEOS. If not, see <https://www.gnu.org/licenses/>.
 //
 
-// #define DEFAULT_FONT std::string("DejaVuMathTeXGyre")
-#define DEFAULT_FONT std::string("DejaVuSans")
-
 // Include PLEOS Math header
 #include "../headers/pleos_maths.h"
 

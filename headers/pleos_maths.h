@@ -38,6 +38,9 @@
 // Functions pages
 #define PLEOS_MATHS_FUNCTIONS_PAGE 100
 #define PLEOS_MATHS_FUNCTIONS_REDACTION_PAGE 101
+// Geometry pages
+#define PLEOS_MATHS_GEOMETRY_PAGE 100
+#define PLEOS_MATHS_GEOMETRY_REDACTION_PAGE 101
 
 // The namespace "pleos" is used to simplify the all.
 namespace pleos {
@@ -67,6 +70,8 @@ namespace pleos {
         virtual void after_xml_loading(){scls::GUI_Page::after_xml_loading();hide_sub_pages(true);a_functions_redaction_elements_chosen.get()->unselected_objects_style().cursor = GLFW_ARROW_CURSOR;};
         // Check the events of functions
         void check_functions();
+        // Check the events of geometry
+        void check_geometry();
         // Check the events of navigation
         void check_navigation();
         // Update the events
@@ -87,6 +92,7 @@ namespace pleos {
         // Displays the geometry page
         void display_geometry_page(){hide_all();geometry_page()->set_visible(true);};
         void display_geometry_complex_numbers_page(){display_geometry_page();geometry_complex_numbers_page()->set_visible(true);};
+        void display_geometry_redaction_page(){set_current_page(PLEOS_MATHS_GEOMETRY_REDACTION_PAGE);display_geometry_page();geometry_redaction_page()->set_visible(true);geometry_redaction()->set_visible(true);};
 
         // Hides all the pages
         void hide_all(){hide_sub_pages(true);};
@@ -119,6 +125,11 @@ namespace pleos {
 
         // Returns geometry
         inline scls::GUI_Object* geometry_complex_numbers_page() const {return a_geometry_complex_numbers_page.get();};
+        inline scls::GUI_Object* geometry_redaction() const {return a_geometry_redaction.get();};
+        inline scls::GUI_Object* geometry_redaction_analyse() const {return a_geometry_redaction_analyse.get();};
+        inline scls::GUI_Scroller_Choice* geometry_redaction_elements() const {return a_geometry_redaction_elements.get();};
+        inline scls::GUI_Scroller_Choice* geometry_redaction_elements_chosen() const {return a_geometry_redaction_elements_chosen.get();};
+        inline scls::GUI_Object* geometry_redaction_page() const {return a_geometry_redaction_page.get();};
 
     private:
 
@@ -149,6 +160,11 @@ namespace pleos {
         // Geometry page
         std::shared_ptr<scls::GUI_Object> a_geometry_complex_numbers_page;
         std::shared_ptr<scls::GUI_Text> a_geometry_definitions_body;
+        std::shared_ptr<scls::GUI_Text> a_geometry_redaction;
+        std::shared_ptr<scls::GUI_Text> a_geometry_redaction_analyse;
+        std::shared_ptr<scls::GUI_Scroller_Choice> a_geometry_redaction_elements;
+        std::shared_ptr<scls::GUI_Scroller_Choice> a_geometry_redaction_elements_chosen;
+        std::shared_ptr<scls::GUI_Object> a_geometry_redaction_page;
     };
 
     class __Temp_Pleos_Window : public scls::Window {

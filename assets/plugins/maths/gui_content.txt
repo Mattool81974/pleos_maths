@@ -23,6 +23,7 @@
 	<sub_choice name="geometry" displayer="Géométrie">
 		<choice name="geometry_definitions">Définition</choice>
 		<choice name="geometry_complex_numbers">Utilisation des nombres complexes</choice>
+		<choice name="geometry_redaction">Espace géométrique</choice>
 	</sub_choice>
 </gui_object>
 

@@ -49,6 +49,11 @@ namespace pleos {
         // Geometry
         if(object_name == "maths_geometry_definitions_body") {a_geometry_definitions_body = *parent->new_object<scls::GUI_Text>(object_name);return a_geometry_definitions_body;}
         if(object_name == "maths_geometry_complex_numbers_body") {a_geometry_complex_numbers_page = *parent->new_object<scls::GUI_Text>(object_name);return a_geometry_complex_numbers_page;}
+        if(object_name == "maths_geometry_redaction"){a_geometry_redaction = *parent->new_object<scls::GUI_Text>(object_name);return a_geometry_redaction;}
+        if(object_name == "maths_geometry_redaction_analyse"){a_geometry_redaction_analyse = *parent->new_object<scls::GUI_Text>(object_name);return a_geometry_redaction_analyse;}
+        if(object_name == "maths_geometry_redaction_body"){a_geometry_redaction_page = *parent->new_object<scls::GUI_Object>(object_name);return a_geometry_redaction_page;}
+        if(object_name == "maths_geometry_redaction_elements"){a_geometry_redaction_elements = *parent->new_object<scls::GUI_Scroller_Choice>(object_name);return a_geometry_redaction_elements;}
+        if(object_name == "maths_geometry_redaction_elements_chosen"){a_geometry_redaction_elements_chosen = *parent->new_object<scls::GUI_Scroller_Choice>(object_name);return a_geometry_redaction_elements_chosen;}
 
         // Pages
         if(object_name == "maths_functions_page") {a_functions_page = *parent->new_object<scls::GUI_Object>(object_name);return a_functions_page;}
@@ -153,6 +158,47 @@ namespace pleos {
         }
     }
 
+    // Check the events of geometry
+    void Maths_Page::check_geometry() {
+        // Add a chosen element
+        if(geometry_redaction_elements()->selection_modified()) {
+            std::string current_choice = geometry_redaction_elements()->currently_selected_objects_during_this_frame()[0].name();
+            geometry_redaction_elements()->unselect_object(geometry_redaction_elements()->currently_selected_objects()[0]);
+
+            // Creation name
+            std::string final_choice = current_choice;
+            if(current_choice == "vector"){
+                final_choice += std::string("-") + std::to_string(geometry_redaction_elements_chosen()->count_object_similar("vector", "-"));
+            }
+
+            // Get the good current choice
+            std::shared_ptr<scls::GUI_Object>* object = geometry_redaction_elements_chosen()->add_object(final_choice);
+
+            // Do the good configuration
+            if(object != 0) {
+                int needed_height = 30;
+                std::string needed_title = "";
+                // Creation settings
+                if(current_choice == "vector"){
+                    needed_title = std::string("Vecteur");
+                }
+
+                final_choice = object->get()->name();
+                object->get()->set_border_width_in_pixel(1);
+                object->get()->set_height_in_pixel(needed_height);
+                geometry_redaction_elements_chosen()->place_objects();
+
+                // Create the title
+                std::shared_ptr<scls::GUI_Text> title = *object->get()->new_object<scls::GUI_Text>(final_choice + "_title");
+                title.get()->attach_top_in_parent();
+                title.get()->set_height_in_pixel(30);
+                title.get()->set_width_in_scale(1);
+                title.get()->set_x_in_object_scale(scls::Fraction(1, 2));
+                title.get()->set_text(needed_title);
+            }
+        }
+    }
+
      // Check the events of navigation
     void Maths_Page::check_navigation() {
         // Check the selected page
@@ -164,7 +210,8 @@ namespace pleos {
             else if(page == "functions_forms"){display_functions_forms_page();}
             else if(page == "functions_graphic"){display_functions_redaction_graphic_page();}
             else if(page == "functions_redaction"){display_functions_redaction_page();}
-            else if(page == "geometry_complex_numbers"){display_geometry_complex_numbers_page();};
+            else if(page == "geometry_complex_numbers"){display_geometry_complex_numbers_page();}
+            else if(page == "geometry_redaction"){display_geometry_redaction_page();}
         }
     }
 
@@ -176,5 +223,7 @@ namespace pleos {
 
         // Check the good page
         if(current_page() == PLEOS_MATHS_FUNCTIONS_REDACTION_PAGE){check_functions();}
+        // Check the good page
+        if(current_page() == PLEOS_MATHS_GEOMETRY_REDACTION_PAGE){check_geometry();}
     }
 }

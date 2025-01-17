@@ -34,12 +34,12 @@
 SCLS_INIT
 
 int main(int argc, char* argv[]) {
-    std::string text = scls::format_string_break_line(scls::read_file("tests/math_ex.txt"), " ");
+    /*std::string text = scls::format_string_break_line(scls::read_file("tests/math_ex.txt"), " ");
     scls::Text_Style style; style.max_width = 600;
     scls::Text_Image_Generator gen;
-    gen.image_shared_ptr<scls::Text_Image_Multi_Block>(text, style).get()->save_png("tests/image.png");
+    gen.image_shared_ptr<scls::Text_Image_Multi_Block>(text, style).get()->save_png("tests/image.png"); //*/
 
-    /*pleos::__Temp_Pleos_Window window(900, 600, argv[0]);
+    pleos::__Temp_Pleos_Window window(900, 600, argv[0]);
     window.load_from_xml("assets/window.txt");
 
     while(window.run()) {

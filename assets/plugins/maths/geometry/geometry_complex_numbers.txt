@@ -4,30 +4,6 @@ Il est possible d'utiliser les nombres complexes pour faire de la géometrie.
 
 Les propriétés multiplicatives sont aussi applicables.
 Définissons deux nombres complexes I et J tel que.
-Tentons le calcul :
-</br>
-<math>
-<frac>
-<mrow><mi>cos(y)</mi><mo>+</mo><mi>isin(y)</mi></mrow>
-<mrow><mi>cos(x)</mi><mo>+</mo><mi>isin(x)</mi></mrow>
-</frac>
-</math>
-</br>
-On y multiplie le conjugué de R(x):
-</br>
-<math>
-<frac>
-<mrow><mi>(cos(y)</mi><mo>+</mo><mi>isin(y))</mi><mo>*</mo><mi>(cos(x)</mi><mo>-</mo><mi>isin(x))</mi></mrow>
-<mrow><mi>(cos(x)</mi><mo>+</mo><mi>isin(x))</mi><mo>*</mo><mi>(cos(x)</mi><mo>-</mo><mi>isin(x))</mi></mrow>
-</frac>
-</math>
-</br>
-=
-</br>
-<math>
-<mi>cos(y - x)</mi><mo>+</mo><mi>isin(y - x)</mi><mo>=</mo><mi>R(y - x)</mi>
-</math>
-</br>
 Si l'on dérive cette fonction, on se rend compte que :
 </br>
 <math>
@@ -35,3 +11,5 @@ Si l'on dérive cette fonction, on se rend compte que :
 </math>
 </br>
 Il y a une relation entre R et sa dérivée : il s'agit d'une équation différentielle.
+Donc, les nombres complexes sont aussi définissable avec des coordonnées polaires.
+Ici, l'angle est nommé l'argument et le rayon est nommé le module.

@@ -72,32 +72,113 @@
 </gui_object>
 
 // Elements
-
-<gui_object name="maths_geometry_redaction_elements" type="scroller_choice">
+<gui_object name="maths_geometry_redaction_elements_choice" type="scroller_choice">
 	<border bottom=1 left=1 right=1 top=1>
-	<height value=1 type=scale>
+	<height value=1/2 type=scale>
 	<parent name="maths_geometry_redaction_body">
 	<width value=1/5 type=scale>
 	<x attach=left>
 	<y attach=top>
 
-	<choice name="vector">Vecteur</choice>
+	<sub_choice name="vector" displayer="Vecteurs">
+		<choice name="vector_norm">Norme</choice>
+	</sub_choice>
 </gui_object>
-<gui_object name="maths_geometry_redaction_elements_chosen" type="scroller_choice">
+<gui_object name="maths_geometry_redaction_elements_creation" type="scroller_choice">
 	<border bottom=1 left=1 right=1 top=1>
 	<height value=3/7 type=scale>
 	<parent name="maths_geometry_redaction_body">
-	<width value=2/5 type=scale>
-	<x attach=right attached_object=maths_functions_redaction_elements>
+	<width value=1/5 type=scale>
+	<x attach=left>
 	<y attach=bottom>
+
+	<choice name="vector">Vecteur</choice>
 </gui_object>
 <gui_object name="maths_geometry_redaction_elements_chosen_title" type="text">
 	<content font_size=40>Éléments à analyser</content>
 	<height value=1/14 type=scale>
 	<parent name="maths_geometry_redaction_body">
 	<width value=2/5 type=scale>
-	<x attach=right attached_object=maths_geometry_redaction_elements>
+	<x attach=right attached_object=maths_geometry_redaction_elements_choice>
 	<y attach=bottom attached_object=maths_geometry_redaction>
+</gui_object>
+// Elements chosen
+<gui_object name="maths_geometry_redaction_elements_chosen" type="scroller_choice">
+	<border bottom=1 left=1 right=1 top=1>
+	<height value=3/7 type=scale>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/5 type=scale>
+	<x attach=right attached_object=maths_geometry_redaction_elements_choice>
+	<y attach=bottom>
+</gui_object>
+// Elements created
+<gui_object name="maths_geometry_redaction_elements_created" type="scroller_choice">
+	<border bottom=1 left=1 right=1 top=1>
+	<height value=3/7 type=scale>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/5 type=scale>
+	<x attach=right attached_object=maths_geometry_redaction_elements_chosen>
+	<y attach=bottom>
+</gui_object>
+
+// Object to analyse
+<gui_object name="maths_geometry_redaction_title" type="text">
+	<content font_size=40>Objets à analyser</content>
+	<height value=1/14 type=scale>
+	<parent name="maths_geometry_redaction_body">
+	<width value=2/5 type=scale>
+	<x attach=right>
+	<y attach=bottom attached_object=maths_functions_redaction>
+</gui_object>
+
+// Vector
+<gui_object name="maths_geometry_redaction_vector_name_title" type="text">
+	<content font_size=30>Nom du vecteur :</content>
+	<height value=30 type=pixel>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/5 type=scale>
+	<x value=7/10 type=object_scale>
+	<y attach=bottom attached_object=maths_geometry_redaction_title>
+</gui_object>
+<gui_object name="maths_geometry_redaction_vector_name" type="text_input">
+	<border bottom=1 left=1 right=1 top=1>
+	<height value=30 type=pixel>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/10 type=scale>
+	<x value=9/10 type=object_scale>
+	<y attach=bottom attached_object=maths_geometry_redaction_title>
+</gui_object>
+<gui_object name="maths_geometry_redaction_vector_x_title" type="text">
+	<content font_size=30>Avec x = </content>
+	<height value=30 type=pixel>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/5 type=scale>
+	<x value=7/10 type=object_scale>
+	<y attach=bottom attached_object=maths_geometry_redaction_vector_name_title>
+</gui_object>
+<gui_object name="maths_geometry_redaction_vector_x" type="text_input">
+	<border bottom=1 left=1 right=1 top=1>
+	<height value=30 type=pixel>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/10 type=scale>
+	<x value=9/10 type=object_scale>
+	<y attach=bottom attached_object=maths_geometry_redaction_vector_name_title>
+</gui_object>
+<gui_object name="maths_geometry_redaction_vector_y_title" type="text">
+	<content font_size=30>Avec y = </content>
+	<height value=30 type=pixel>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/5 type=scale>
+	<x value=7/10 type=object_scale>
+	<y attach=bottom attached_object=maths_geometry_redaction_vector_x_title>
+</gui_object>
+<gui_object name="maths_geometry_redaction_vector_y" type="text_input">
+	<border bottom=1 left=1 right=1 top=1>
+	<height value=30 type=pixel>
+	<parent name="maths_geometry_redaction_body">
+	<width value=1/10 type=scale>
+	<x value=9/10 type=object_scale>
+	<y attach=bottom attached_object=maths_geometry_redaction_vector_x_title>
 </gui_object>
 
 // Analyse button

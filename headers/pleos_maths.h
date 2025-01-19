@@ -62,19 +62,42 @@ namespace pleos {
 
         //******************
         //
+        // Geoemtry handling
+        //
+        //******************
+
+        // Adds an element to analyse
+        void add_element(std::string current_choice);
+        // Adds an element to create
+        void add_element_created(std::string current_choice);
+
+        // Selects a geometry vector
+        void geometry_select_vector(std::shared_ptr<pleos::Vector>);
+
+        // Getters and setters
+        inline pleos::Vector* currently_selected_vector() const {return a_current_state.a_geometry_currently_selected_vector.get();}
+        inline std::shared_ptr<pleos::Vector>& currently_selected_vector_shared_ptr() {return a_current_state.a_geometry_currently_selected_vector;}
+        inline std::vector<std::shared_ptr<pleos::Vector>>& geometry_vectors_created() {return a_current_state.a_geometry_vectors_created;};
+
+        //******************
+        //
         // Check the events
         //
         //******************
 
         // Function called after the XML loading
         virtual void after_xml_loading(){scls::GUI_Page::after_xml_loading();hide_sub_pages(true);a_functions_redaction_elements_chosen.get()->unselected_objects_style().cursor = GLFW_ARROW_CURSOR;};
-        // Check the events of functions
+        // Checks the events of functions
         void check_functions();
-        // Check the events of geometry
+        // Checks the events of geometry
         void check_geometry();
-        // Check the events of navigation
+        // Checks the events of hiding geometry page
+        void check_geometry_hiding();
+        // Checks the events of hiding all pages
+        void check_hiding();
+        // Checks the events of navigation
         void check_navigation();
-        // Update the events
+        // Updates the events
         virtual void update_event();
 
         //******************
@@ -95,7 +118,7 @@ namespace pleos {
         void display_geometry_redaction_page(){set_current_page(PLEOS_MATHS_GEOMETRY_REDACTION_PAGE);display_geometry_page();geometry_redaction_page()->set_visible(true);geometry_redaction()->set_visible(true);};
 
         // Hides all the pages
-        void hide_all(){hide_sub_pages(true);};
+        void hide_all(){hide_sub_pages(true);check_hiding();};
 
         // Returns / resets the current page
         inline unsigned short current_page() const {return a_current_state.current_page;};
@@ -125,16 +148,28 @@ namespace pleos {
 
         // Returns geometry
         inline scls::GUI_Object* geometry_complex_numbers_page() const {return a_geometry_complex_numbers_page.get();};
-        inline scls::GUI_Object* geometry_redaction() const {return a_geometry_redaction.get();};
+        inline scls::GUI_Text* geometry_redaction() const {return a_geometry_redaction.get();};
         inline scls::GUI_Object* geometry_redaction_analyse() const {return a_geometry_redaction_analyse.get();};
         inline scls::GUI_Scroller_Choice* geometry_redaction_elements() const {return a_geometry_redaction_elements.get();};
         inline scls::GUI_Scroller_Choice* geometry_redaction_elements_chosen() const {return a_geometry_redaction_elements_chosen.get();};
+        inline scls::GUI_Scroller_Choice* geometry_redaction_elements_created() const {return a_geometry_redaction_elements_created.get();};
+        inline scls::GUI_Scroller_Choice* geometry_redaction_elements_creation() const {return a_geometry_redaction_elements_creation.get();};
         inline scls::GUI_Object* geometry_redaction_page() const {return a_geometry_redaction_page.get();};
+        // Vector redaction
+        inline scls::GUI_Text_Input* geometry_redaction_vector_name() const {return a_geometry_redaction_vector_name.get();};
+        inline scls::GUI_Text_Input* geometry_redaction_vector_x() const {return a_geometry_redaction_vector_x.get();};
+        inline scls::GUI_Text_Input* geometry_redaction_vector_y() const {return a_geometry_redaction_vector_y.get();};
 
     private:
 
         // Current state of the page
         struct {
+            // Geometry
+            // Created vectors
+            std::vector<std::shared_ptr<pleos::Vector>> a_geometry_vectors_created = std::vector<std::shared_ptr<pleos::Vector>>();
+            // Currently selected vector
+            std::shared_ptr<pleos::Vector> a_geometry_currently_selected_vector = std::shared_ptr<pleos::Vector>();
+
             // Current page
             unsigned short current_page = PLEOS_MATHS_HOME_PAGE;
         } a_current_state;
@@ -164,7 +199,13 @@ namespace pleos {
         std::shared_ptr<scls::GUI_Text> a_geometry_redaction_analyse;
         std::shared_ptr<scls::GUI_Scroller_Choice> a_geometry_redaction_elements;
         std::shared_ptr<scls::GUI_Scroller_Choice> a_geometry_redaction_elements_chosen;
+        std::shared_ptr<scls::GUI_Scroller_Choice> a_geometry_redaction_elements_created;
+        std::shared_ptr<scls::GUI_Scroller_Choice> a_geometry_redaction_elements_creation;
         std::shared_ptr<scls::GUI_Object> a_geometry_redaction_page;
+        // Redaction vector
+        std::shared_ptr<scls::GUI_Text_Input> a_geometry_redaction_vector_name;
+        std::shared_ptr<scls::GUI_Text_Input> a_geometry_redaction_vector_x;
+        std::shared_ptr<scls::GUI_Text_Input> a_geometry_redaction_vector_y;
     };
 
     class __Temp_Pleos_Window : public scls::Window {

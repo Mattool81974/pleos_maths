@@ -165,9 +165,14 @@ namespace pleos {
             if(needed_function == "") {return;}
             scls::Formula needed_formula = scls::string_to_formula(needed_function);
 
+            // Check the graphic part
+            functions_redaction_graphic()->reset();
+            functions_redaction_graphic()->add_function(needed_formula);
+
             // Do the redaction
             Function_Studied fs; fs.function_formula = needed_formula; fs.function_name = function_name; fs.function_unknown = std::string("x");
-            std::string redaction = std::string("Nous avons la fonction ") + function_name + std::string(" tel que ") + function_name + std::string("(") + std::string(") = ") + needed_formula.to_std_string() + std::string(".</br></br>");
+            std::string redaction = std::string("Nous avons la fonction ") + function_name + std::string(" tel que :</br></br>");
+            redaction += std::string("<math><mi>") + function_name + std::string("(x") + std::string(")</mi><mo>=</mo>") + needed_formula.to_mathml() + std::string("</math></br></br>");
 
             // Add the needed arguments
             std::vector<scls::GUI_Scroller_Choice::GUI_Scroller_Single_Choice>& objects = functions_redaction_elements_chosen()->objects();

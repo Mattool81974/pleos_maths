@@ -144,7 +144,7 @@ namespace pleos {
         inline scls::GUI_Scroller_Choice* functions_redaction_elements() const {return a_functions_redaction_elements.get();};
         inline scls::GUI_Scroller_Choice* functions_redaction_elements_chosen() const {return a_functions_redaction_elements_chosen.get();};
         inline scls::GUI_Text_Input* functions_redaction_expression() const {return a_functions_redaction_expression.get();};
-        inline scls::GUI_Object* functions_redaction_graphic() const {return a_functions_redaction_graphic.get();};
+        inline pleos::Graphic* functions_redaction_graphic() const {return a_functions_redaction_graphic.get();};
 
         // Returns geometry
         inline scls::GUI_Object* geometry_complex_numbers_page() const {return a_geometry_complex_numbers_page.get();};
@@ -190,7 +190,7 @@ namespace pleos {
         std::shared_ptr<scls::GUI_Scroller_Choice> a_functions_redaction_elements;
         std::shared_ptr<scls::GUI_Scroller_Choice> a_functions_redaction_elements_chosen;
         std::shared_ptr<scls::GUI_Text_Input> a_functions_redaction_expression;
-        std::shared_ptr<scls::GUI_Object> a_functions_redaction_graphic;
+        std::shared_ptr<Graphic> a_functions_redaction_graphic;
 
         // Geometry page
         std::shared_ptr<scls::GUI_Object> a_geometry_complex_numbers_page;

@@ -165,10 +165,6 @@ namespace pleos {
             if(needed_function == "") {return;}
             scls::Formula needed_formula = scls::string_to_formula(needed_function);
 
-            // Check the graphic part
-            functions_redaction_graphic()->reset();
-            functions_redaction_graphic()->add_function(needed_formula);
-
             // Do the redaction
             Function_Studied fs; fs.function_formula = needed_formula; fs.function_name = function_name; fs.function_unknown = std::string("x");
             std::string redaction = std::string("Nous avons la fonction ") + function_name + std::string(" tel que :</br></br>");
@@ -181,12 +177,19 @@ namespace pleos {
                 std::string type = cutted[0];
 
                 // Analyse the argument
-                if(type == "definition_set") { function_definition_set(fs, redaction); }
+                if(type == "definition_set") {
+                    function_definition_set(&fs, &redaction);
+                }
                 else if(type == "image") {
                     scls::Formula needed_value = scls::string_to_formula(reinterpret_cast<scls::GUI_Text_Input*>(objects[i].object()->child_by_name(objects[i].object()->name() + "_input_x"))->text());
                     function_image(fs, needed_value, redaction);
                 } redaction += std::string("</br></br>");
             }
+
+            // Check the graphic part
+            if(fs.definition_set.get() == 0){function_definition_set(&fs, 0);}
+            functions_redaction_graphic()->reset();
+            functions_redaction_graphic()->add_function(std::make_shared<Function_Studied>(fs));
 
             functions_redaction()->set_text(redaction);
         }
